@@ -218,3 +218,23 @@ class Classes(BaseModel):
                          'has member:%d' % (len(self.students))])
 
 
+class CourseToTeahcer(BaseModel):
+    db_path = settings.COURSE_TO_TEACHER_DB
+
+    def __init__(self, course_nid, teacher_nid):
+        self.nid = identifier.CourseToTeacherNid(CourseToTeahcer.db_path)
+        self.course_nid = course_nid
+        self.teacher_nid = teacher_nid
+
+    def __str__(self):
+        return '%s TO %s' % (self.course_nid.get_obj_by_uuid().__str__(),
+                             self.teacher_nid.get_obj_by_uuid().__str__())
+    @staticmethod
+    def get_all_list():
+        for i in os.listdir(CourseToTeahcer.db_path):
+            with open('%s/%s' % (CourseToTeahcer.db_path, i), 'rb') as f:
+                ctt = pickle.load(f)
+                print(ctt)
+
+# if __name__ == '__main__':
+#     CourseToTeahcer.get_all_list()

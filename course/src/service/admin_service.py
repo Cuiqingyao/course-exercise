@@ -4,7 +4,7 @@
 """
 import os
 import pickle
-from course.src.models import Admin, School, Teacher, Course, Classes
+from course.src.models import Admin, School, Teacher, Course, Classes, CourseToTeahcer
 def show_choice():
     show = '''
         1.菜单
@@ -122,12 +122,13 @@ def create_course():
 
 
 
-def show_courses(school_name):
+def show_courses():
     '''
     按学校名展示课程
     :param school_name:学校名称
     :return:
     '''
+    school_name = input('请输入要查询课程的学校名称：')
     sc = find_school_by_name(school_name)
     if sc:
         sc.show_courses()
@@ -135,23 +136,28 @@ def show_courses(school_name):
         print('学校不存在！无法展示课程信息！')
 
 
-def add_teacher_to_course(school_name):
+def add_teacher_to_course():
     '''
     按学校名为课程添加教师
     :param school_name: 学校名称
     :return:
     '''
+    school_name = input("请输入操作的学校名称：")
     sc = find_school_by_name(school_name)
     if sc:
         sc.show_courses()
         course_name = input("请输入要添加任课老师的课程名称：")
         for c in sc.courses:
-            if c.get_obj_by_uuid().course_name == course_name:
+            c_obj = c.get_obj_by_uuid()
+            if c_obj.course_name == course_name:
                 teacher_name = input('请输入任课老师姓名：')
                 for t in sc.teachers:
-                    if t.get_obj_by_uuid().teacher_name == teacher_name:
-                        c.add_teacher(t.nid)
-                        c.save()
+                    t_obj = t.get_obj_by_uuid()
+                    if t_obj.teacher_name == teacher_name:
+                        c_obj.add_teacher(t_obj.nid)
+                        c_obj.save()
+                        ctt = CourseToTeahcer(c, t)
+                        ctt.save()
                         sc.save()
                         return
                 print('老师不存在！')
@@ -165,8 +171,8 @@ def create_class():
     创建班级
     :return:
     '''
-    school_name = input('请输入要添加课程的学校名称：')
-    class_name = input('请输入课程名称：')
+    school_name = input('请输入要添加班级的学校名称：')
+    class_name = input('请输入班级名称：')
     sc = find_school_by_name(school_name)
     if sc:
         new_class = Classes(class_name, sc.nid)
@@ -174,15 +180,16 @@ def create_class():
         sc.add_class(new_class.nid)
         sc.save()
     else:
-        print("学校不存在！课程添加失败！")
+        print("学校不存在！班级添加失败！")
 
 
-def show_classes(school_name):
+def show_classes():
     '''
     按学校名展示班级
     :param school_name:学校名
     :return:
     '''
+    school_name = input('请输入要查询班级的学校名称：')
     sc = find_school_by_name(school_name)
     if sc:
         sc.show_classes()
