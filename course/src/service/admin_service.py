@@ -4,7 +4,7 @@
 """
 import os
 import pickle
-from course.src.models import Admin, School, Teacher, Course, Classes, CourseToTeahcer
+from course.src.models import Admin, School, Teacher, Course, Classes, CourseToTeahcer, Student
 def show_choice():
     show = '''
         1.菜单
@@ -182,6 +182,20 @@ def create_class():
     else:
         print("学校不存在！班级添加失败！")
 
+def find_class_by_name(class_name):
+    '''
+    按班级名称查找班级
+    :param school_name:班级名称
+    :return:
+    '''
+    for i in os.listdir(Classes.db_path):
+        with open('%s/%s' % (Classes.db_path, i), 'rb') as f:
+            cl = pickle.load(f)
+            if cl.class_name == class_name:
+                return cl
+
+    return None
+
 
 def show_classes():
     '''
@@ -196,6 +210,19 @@ def show_classes():
     else:
         print("学校不存在！无法展示班级信息！")
 
+def find_student_by_name(student_name):
+    '''
+    按姓名称查找学生
+    :param student_name:学生姓名
+    :return:
+    '''
+    for i in os.listdir(Student.db_path):
+        with open('%s/%s' % (Student.db_path, i), 'rb') as f:
+            stu = pickle.load(f)
+            if stu.student_name == student_name:
+                return stu
+
+    return None
 
 def quit_system():
     print('Bye!')

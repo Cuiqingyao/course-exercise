@@ -195,13 +195,10 @@ class Student(BaseModel):
 
     def __str__(self):
         return ','.join(['[Student] name:%s' % (self.student_name),
-                         'age:%d' % (self.student_age),
+                         'age:%s' % (self.student_age),
                          'at school:%s' % (self.school_id.get_obj_by_uuid().school_name),
                          'at class:%s' % (self.classes_id.get_obj_by_uuid().class_name)])
 
-    @staticmethod
-    def register():
-        pass
 
 class Classes(BaseModel):
     db_path = settings.CLASSES_DB
