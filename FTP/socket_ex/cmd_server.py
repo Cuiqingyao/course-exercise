@@ -3,24 +3,6 @@
     @Author: qingyaocui
 """
 
-# import socket
-#
-# # family , type
-# sk = socket.socket()
-#
-# address = ('127.0.0.1', 8000)
-#
-# sk.bind(address)
-#
-# sk.listen(3)
-#
-# conn, addr = sk.accept()
-#
-# print('client addr: ', addr)
-# inp = input('>>>:')
-#
-# conn.send(bytes(inp, encoding='utf8'))
-
 import subprocess
 import socket
 
