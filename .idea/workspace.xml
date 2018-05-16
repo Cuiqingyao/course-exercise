@@ -31,8 +31,8 @@
       <file leaf-file-name="cmd_client.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FTP/socket_ex/cmd_client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="18" lean-forward="false" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+            <state relative-caret-position="242">
+              <caret line="29" column="10" lean-forward="true" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -108,6 +108,17 @@
               <item name="course-exercise" type="b2602c69:ProjectViewProjectNode" />
               <item name="course-exercise" type="462c0819:PsiDirectoryNode" />
               <item name="course" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="course-exercise" type="b2602c69:ProjectViewProjectNode" />
+              <item name="course-exercise" type="462c0819:PsiDirectoryNode" />
+              <item name="doc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="course-exercise" type="b2602c69:ProjectViewProjectNode" />
+              <item name="course-exercise" type="462c0819:PsiDirectoryNode" />
+              <item name="doc" type="462c0819:PsiDirectoryNode" />
+              <item name="markdown" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="course-exercise" type="b2602c69:ProjectViewProjectNode" />
@@ -297,7 +308,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -461,10 +472,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/socketserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5211">
+          <caret line="506" column="43" lean-forward="false" selection-start-line="506" selection-start-column="36" selection-end-line="506" selection-end-column="43" />
+          <folding>
+            <element signature="e#6106#13341#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/FTP/socket_ex/cmd_client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="18" lean-forward="false" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        <state relative-caret-position="242">
+          <caret line="29" column="10" lean-forward="true" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
           <folding />
         </state>
       </provider>
